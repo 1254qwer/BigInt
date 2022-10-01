@@ -2,6 +2,7 @@
 // Created by zxq on 2022/9/23.
 //
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include "BigInt.h"
 
@@ -17,6 +18,10 @@ void InputNumber(LinkList &L, char bignum[]) {
     L->priv = nullptr;
     L->next = nullptr;
     for (i = 0; i < pointer; i++) {
+        if(bignum[i] < '0' || bignum[i] > '9'){
+            printf("输入值不合法！程序退出中...");
+            abort();
+        }
         tmp = tmp * 10 + bignum[i] - 48; // accii表中48对应字符'0'
     }
     L->number = tmp;
@@ -274,6 +279,7 @@ LinkList MinusNumber(LinkList &L1, LinkList &L2){
 
 LinkList MultiplyNumber(LinkList &L1, LinkList &L2){
     // 乘法
+    // 灵感来源：https://blog.csdn.net/hgnuxc_1993/article/details/110297000
     LinkList point1 = L1, point2 = L2, result, temp, newnode;
     int tmp, i, j=1;
     int list[1000]; // 单步乘法数据存入该表格
