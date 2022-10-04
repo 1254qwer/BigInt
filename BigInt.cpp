@@ -22,7 +22,7 @@ void InputNumber(LinkList &L, char bignum[]) {
             printf("输入值不合法！程序退出中...");
             abort();
         }
-        tmp = tmp * 10 + bignum[i] - 48; // accii表中48对应字符'0'
+        tmp = tmp * 10 + bignum[i] - 48; // ascii表中48对应字符'0'
     }
     L->number = tmp;
     p = L;
